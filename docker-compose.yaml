@@ -8,12 +8,12 @@ services:
     volumes:
       - '.:/app'
     environment:
-      - SYMFONY_PROJECT_NAME=myapp
+      - SYMFONY_PROJECT_NAME=todo_app
       - MARIADB_HOST=mariadb
       - MARIADB_PORT_NUMBER=3306
       - MARIADB_USER=tduser
       - MARIADB_PASSWORD=uOrGEPhOueTE
-      - MARIADB_DATABASE=td_db
+      - MARIADB_DATABASE=todo_db
     depends_on:
       - mariadb
   mariadb:
@@ -22,4 +22,4 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_USER=tduser
       - MARIADB_PASSWORD=uOrGEPhOueTE
-      - MARIADB_DATABASE=td_db
+      - MARIADB_DATABASE=todo_db
