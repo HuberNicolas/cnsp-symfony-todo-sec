@@ -1,3 +1,9 @@
 curl -LO https://raw.githubusercontent.com/bitnami/containers/main/bitnami/symfony/docker-compose.yml
 modify file
 docker-compose up
+
+composer require --dev symfony/maker-bundle
+composer require symfony/form
+composer require "twig/twig:^2.0"
+composer require symfony/security-bundle
+composer require --dev symfony/profiler-pack
