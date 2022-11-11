@@ -3,18 +3,25 @@
 {% block title %}Hello TodoController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Todo items</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/app/todo_app/src/Controller/TodoController.php'|file_link(0) }}">src/Controller/TodoController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/app/todo_app/templates/todo/index.html.twig'|file_link(0) }}">templates/todo/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Due To</th>
+            <th>Description</th>
+            <th>From</th>
+        </tr>
+        {% for todo in todos %}
+            <tr>
+                <td><a href="{{ path('todo_edit', {'id': todo.id}) }}">{{ todo.id }}</a></td>
+                <td>{{ todo.name }}</td>
+                <td>{{ todo.dueto | date("m/d/Y") }}</td>
+                <td>{{ todo.description }}</td>
+                <td>{{ todo.getFromUser() }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
