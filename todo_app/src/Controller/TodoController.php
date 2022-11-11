@@ -55,4 +55,27 @@ class TodoController extends AbstractController
 
     }
 
+    /**
+     * @Route("/todo/edit/{id}", name="todo_edit")
+     */
+    public function edit(ManagerRegistry $doctrine, int $id, Request $request): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $todo = $entityManager->getRepository(Todo::class)->find($id);
+
+        $form = $this->createForm(TodoType::class, $todo);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            return $this->redirectToRoute('todo_index');
+        }
+
+        return $this->render('todo/edit.html.twig', [
+            'todo' => $todo,
+            'form' => $form->createView(),
+        ]);
+
+    }
+
 }
