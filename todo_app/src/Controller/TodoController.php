@@ -15,12 +15,17 @@ class TodoController extends AbstractController
     /**
      * @Route("/todo", name="todo_index")
      */
-    public function index(): Response
+    public function index(ManagerRegistry $doctrine, Request $request): Response
     {
+        $entityManager = $doctrine->getManager();
+        $todos = $entityManager->getRepository(Todo::class)->findAll();
+
         return $this->render('todo/index.html.twig', [
-            'controller_name' => 'TodoController',
+            'todos' => $todos
         ]);
+
     }
+
 
     /**
      * @Route("/todo/new", name="todo_new")
