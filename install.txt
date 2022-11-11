@@ -17,7 +17,15 @@ php bin/console doctrine:migrations:migrate
 
 php bin/console make:controller TodoController
 
+Import and Export of Containers:
 docker images
 docker commit ID hubernicolas/mariadb:version1
 docker commit ID hubernicolas/symfonyapp:version1
 Images -> Run -> Ports -> Host Port = 8000
+
+Connect db locally:
+docker-compose.yaml
+    ports:
+      - '3306:3306'
+Host: 0.0.0.0
+Port: 3306
