@@ -18,7 +18,14 @@ class TodoController extends AbstractController
     public function index(ManagerRegistry $doctrine, Request $request): Response
     {
         $entityManager = $doctrine->getManager();
-        $todos = $entityManager->getRepository(Todo::class)->findAll();
+        $user = $this->getUser();
+
+        if (in_array('ROLE_ADMIN', $user->getRoles())) {
+            $todos = $entityManager->getRepository(Todo::class)->findAll();
+        }
+        else {
+            $todos = $entityManager->getRepository(Todo::class)->findBy(['belongs_to' => $user]);
+        }
 
         return $this->render('todo/index.html.twig', [
             'todos' => $todos
