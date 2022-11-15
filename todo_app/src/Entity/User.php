@@ -170,4 +170,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->getEmail();
     }
+
+    /**
+     * @deprecated since Symfony 5.3, use getUserIdentifier instead
+     */
+    public function getShortname(): string
+    {
+        return (string) $this->before('@', $this->email);
+    }
+
+    public function before ($char, $inthat)
+    {
+        return substr($inthat, 0, strpos($inthat, $char));
+    }
 }

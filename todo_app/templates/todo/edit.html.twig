@@ -1,9 +1,10 @@
-{% form_theme form 'bootstrap_5_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Todo{% endblock %}
 
 {% block body %}
-    <h1>Edit Todo:</h1>
+    {% include('navbar.html.twig') %}
+    <h1>Edit Todo</h1>
     {{ form(form) }}
-    <button type="button" class="btn btn-danger">
-        <a href="{{ path('app_logout') }}">Logout</a>
-    </button>
+    <a class="btn btn-outline-secondary" type="button" href="{{ path('todo_index') }}">Back</a>
 {% endblock %}

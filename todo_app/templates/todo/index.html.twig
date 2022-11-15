@@ -3,8 +3,9 @@
 {% block title %}Todo-Overview{% endblock %}
 
 {% block body %}
-    <h1>Todo items</h1>
-
+    {% include('navbar.html.twig') %}
+    <h1>Todo List</h1>
+    <h3>Hello {{ user.shortname() }}</h3>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -13,21 +14,21 @@
                 <th>Due To</th>
                 <th>Description</th>
                 <th>From</th>
+                <th>Edit</th>
             </tr>
         </thead>
         {% for todo in todos %}
             <tbody>
                 <tr>
-                    <td><a href="{{ path('todo_edit', {'id': todo.id}) }}">{{ todo.id }}</a></td>
+                    <td>{{ todo.id }}</td>
                     <td>{{ todo.name }}</td>
                     <td>{{ todo.dueto | date("m/d/Y") }}</td>
                     <td>{{ todo.description }}</td>
                     <td>{{ todo.getbelongsto() }}</td>
+                    <td><a href="{{ path('todo_edit', {'id': todo.id}) }}">✏</a></td>
                 </tr>
             </tbody>
         {% endfor %}
     </table>
-    <button type="button" class="btn btn-danger">
-        <a href="{{ path('app_logout') }}">Logout</a>
-    </button>
+    {% include('footer.html.twig') %}
 {% endblock %}

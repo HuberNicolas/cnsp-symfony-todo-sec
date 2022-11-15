@@ -18,7 +18,7 @@ class TodoType extends AbstractType
             ->add('important')
             ->add('due_to')
             ->add('belongs_to')
-            ->add('save', SubmitType::class, ['label' => 'Create Todo'])
+            ->add('save', SubmitType::class, ['label' => 'Submit Todo'])
         ;
     }
 
