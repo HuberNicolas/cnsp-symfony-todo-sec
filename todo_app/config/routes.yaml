@@ -1,6 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-legacy_doc:
+index:
   path: /
   controller: App\Controller\LoginController::index
