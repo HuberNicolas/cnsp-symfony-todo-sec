@@ -1,27 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TodoController!{% endblock %}
+{% block title %}Todo-Overview{% endblock %}
 
 {% block body %}
     <h1>Todo items</h1>
 
-    <table>
-
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Due To</th>
-            <th>Description</th>
-            <th>From</th>
-        </tr>
-        {% for todo in todos %}
+    <table class="table table-striped table-hover">
+        <thead>
             <tr>
-                <td><a href="{{ path('todo_edit', {'id': todo.id}) }}">{{ todo.id }}</a></td>
-                <td>{{ todo.name }}</td>
-                <td>{{ todo.dueto | date("m/d/Y") }}</td>
-                <td>{{ todo.description }}</td>
-                <td>{{ todo.getbelongsto() }}</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Due To</th>
+                <th>Description</th>
+                <th>From</th>
             </tr>
+        </thead>
+        {% for todo in todos %}
+            <tbody>
+                <tr>
+                    <td><a href="{{ path('todo_edit', {'id': todo.id}) }}">{{ todo.id }}</a></td>
+                    <td>{{ todo.name }}</td>
+                    <td>{{ todo.dueto | date("m/d/Y") }}</td>
+                    <td>{{ todo.description }}</td>
+                    <td>{{ todo.getbelongsto() }}</td>
+                </tr>
+            </tbody>
         {% endfor %}
     </table>
+    <button type="button" class="btn btn-danger">
+        <a href="{{ path('app_logout') }}">Logout</a>
+    </button>
 {% endblock %}
