@@ -15,6 +15,7 @@
                 <th>Description</th>
                 <th>From</th>
                 <th>Edit</th>
+                <th>Done</th>
             </tr>
         </thead>
         {% for todo in todos %}
@@ -26,6 +27,14 @@
                     <td>{{ todo.description }}</td>
                     <td>{{ todo.getbelongsto() }}</td>
                     <td><a href="{{ path('todo_edit', {'id': todo.id}) }}">✏</a></td>
+                    <td>
+            {% if todo.done %}
+                ✔️
+            {% else  %}
+                ❌
+            {% endif %}
+
+                    </td>
                 </tr>
             </tbody>
         {% endfor %}
