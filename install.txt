@@ -38,3 +38,11 @@ php bin/console doctrine:migrations:migrate
 
 # Load db-dump
 mysqldump -u username -p database_name > data-dump.sql
+
+$ cd dump
+$ ls
+todo.sql  user.sql
+$ mysql -u root -p todo_db < user.sql
+Enter password:
+$ mysql -u root -p todo_db < todo.sql
+Enter password:
