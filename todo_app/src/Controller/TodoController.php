@@ -64,12 +64,21 @@ class TodoController extends AbstractController
     }
 
     /**
-     * @Route("/todo/edit/{id}", name="todo_edit")
+     * @Route("/todo/edit/{id}", name="todo_edit",  requirements={"id"="\d+"})
      */
     public function edit(ManagerRegistry $doctrine, int $id, Request $request): Response
     {
         $entityManager = $doctrine->getManager();
+        $user = $this->getUser();
         $todo = $entityManager->getRepository(Todo::class)->find($id);
+
+        if (!$todo) {
+            throw $this->createNotFoundException('Unable to find entity!');
+        }
+
+        if ($todo->getBelongsTo() != $user && !in_array('ROLE_ADMIN', $user->getRoles())) {
+            throw $this->createNotFoundException('This todo item does not belong to you!');
+        }
 
         $form = $this->createForm(TodoType::class, $todo);
         $form->handleRequest($request);
