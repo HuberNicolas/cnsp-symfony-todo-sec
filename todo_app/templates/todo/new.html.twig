@@ -1,1 +1,9 @@
-{{ form(form) }}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+    <h1>New Todo:</h1>
+    {{ form(form) }}
+    <button type="button" class="btn btn-danger">
+        <a href="{{ path('app_logout') }}">Logout</a>
+    </button>
+{% endblock %}
