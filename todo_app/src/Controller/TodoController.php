@@ -28,7 +28,8 @@ class TodoController extends AbstractController
         }
 
         return $this->render('todo/index.html.twig', [
-            'todos' => $todos
+            'todos' => $todos,
+            'user' => $user,
         ]);
 
     }
