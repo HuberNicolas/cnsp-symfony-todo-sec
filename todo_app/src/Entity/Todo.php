@@ -42,6 +42,11 @@ class Todo
      */
     private $belongs_to;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $done;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Todo
     public function setBelongsTo(?User $belongs_to): self
     {
         $this->belongs_to = $belongs_to;
+
+        return $this;
+    }
+
+    public function isDone(): ?bool
+    {
+        return $this->done;
+    }
+
+    public function setDone(bool $done): self
+    {
+        $this->done = $done;
 
         return $this;
     }
