@@ -35,3 +35,6 @@ Migration:
 Go to docker container and open shell
 php bin/console doctrine:migrations:status
 php bin/console doctrine:migrations:migrate
+
+# Load db-dump
+mysqldump -u username -p database_name > data-dump.sql
