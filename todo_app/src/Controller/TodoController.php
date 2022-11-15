@@ -50,7 +50,6 @@ class TodoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $todo = $form->getData();
-
             $entityManager->persist($todo);
             $entityManager->flush();
 
@@ -84,6 +83,11 @@ class TodoController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if (!in_array('ROLE_ADMIN', $user->getRoles())) {
+                $todo->setBelongsTo($user);
+            }
+
             $entityManager->flush();
             return $this->redirectToRoute('todo_index');
         }
