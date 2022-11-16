@@ -4,7 +4,7 @@ services:
   todo_app:
     image: 'bitnami/symfony:1'
     ports:
-      - '8002:8000'
+      - '443:8000'
     volumes:
       - '.:/app'
     environment:
