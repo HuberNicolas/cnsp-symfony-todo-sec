@@ -56,7 +56,7 @@ cd todo_app
 composer install
 ```
 
-After that, the application can be accessed on <http://localhost:8002/>
+After that, the application can be accessed on <http://localhost:443/>
 
 ## Credentials
 
