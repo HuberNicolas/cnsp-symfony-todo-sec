@@ -25,5 +25,6 @@ services:
       - MARIADB_USER=tduser
       - MARIADB_PASSWORD=uOrGEPhOueTE
       - MARIADB_DATABASE=todo_db
+      - MARIADB_ROOT_PASSWORD=zO4.G8P.6eTv
     volumes:
       - ./db_dump:/dump
