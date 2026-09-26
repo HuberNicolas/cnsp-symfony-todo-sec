@@ -45,7 +45,7 @@ class Todo
     /**
      * @ORM\Column(type="boolean")
      */
-    private $done;
+    private $done = false;
 
     public function getId(): ?int
     {
