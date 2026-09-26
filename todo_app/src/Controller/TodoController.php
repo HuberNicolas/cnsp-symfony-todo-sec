@@ -50,6 +50,7 @@ class TodoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $todo = $form->getData();
+            $todo->setBelongsTo($this->getUser());
             $entityManager->persist($todo);
             $entityManager->flush();
 
