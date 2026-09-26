@@ -1,7 +1,2 @@
-/.idea/.gitignore
-/.idea/cnsp-symfony-todo-sec.iml
-/.idea/modules.xml
-/.idea/vcs.xml
-/.idea/php.xml
-/.idea/dataSources.xml
-/.idea/.name
+/.idea/
+/.env
