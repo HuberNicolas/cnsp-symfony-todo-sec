@@ -23,7 +23,7 @@
                 <tr>
                     <td>{{ todo.id }}</td>
                     <td>{{ todo.name }}</td>
-                    <td>{{ todo.dueto | date("m/d/Y") }}</td>
+                    <td>{{ todo.dueto ? todo.dueto | date("m/d/Y") }}</td>
                     <td>{{ todo.description }}</td>
                     <td>{{ todo.getbelongsto() }}</td>
                     <td><a href="{{ path('todo_edit', {'id': todo.id}) }}">✏</a></td>
