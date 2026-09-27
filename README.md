@@ -92,11 +92,11 @@ the host.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/HuberNicolas/cnsp-symfony-todo-sec.git
+   git clone https://github.com/HuberNicolas/network-security-uzh.git
    ```
 
    ```bash
-   cd cnsp-symfony-todo-sec
+   cd network-security-uzh
    ```
 
 2. Create the local `.env` and replace the placeholders with your own values:
